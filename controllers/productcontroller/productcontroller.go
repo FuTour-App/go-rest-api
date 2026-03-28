@@ -12,7 +12,17 @@ func Index(c *gin.Context) {
 
 	var products []models.Product
 
-	models.DB.Find(&products)
+	name := c.Query("nama_product")
+	query := models.DB
+
+	if name != "" {
+		query = query.Where("nama_product LIKE ?", "%"+name+"%")
+	}
+
+	if err := query.Find(&products).Error; err != nil {
+		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
+		return
+	}
 
 	c.JSON(http.StatusOK, gin.H{"products": products})
 
