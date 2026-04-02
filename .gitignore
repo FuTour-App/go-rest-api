@@ -1,0 +1,38 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.pdb
+*.wasm
+
+# Test binary, generated with go test -c
+*.test
+
+# Output of the go generate command
+*.go.out
+
+# Dependency directories (golang vendor)
+vendor/
+
+# Go module cache
+# Please see the following page to understand the effects of ignoring this directory:
+# https://github.com
+.go/
+
+# Environment files
+.env
+
+# IDE and editor files
+# VS Code
+.vscode/
+
+# JetBrains IDEs (GoLand, IntelliJ, etc.)
+.idea/
+
+# macOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
