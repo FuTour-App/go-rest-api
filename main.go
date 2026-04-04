@@ -26,6 +26,8 @@ func main() {
 	cfg := initConfig()
 	models.ConnectDatabase(cfg)
 
+	r.Static("/uploads", "./uploads")
+
 	r.GET("/api/products", productcontroller.Index)
 	r.GET("/api/products/:id", productcontroller.Show)
 

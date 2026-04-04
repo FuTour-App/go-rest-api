@@ -1,7 +1,6 @@
 package authcontroller
 
 import (
-	"fmt"
 	"net/http"
 	"time"
 
@@ -21,7 +20,6 @@ func Register(c *gin.Context) {
 		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": err.Error()})
 		return
 	}
-	fmt.Printf("DEBUG: Username yang diterima: '%s'\n", user.UserName)
 
 	var existingEmail models.User
 
@@ -76,7 +74,7 @@ func Login(c *gin.Context, cfg *config.Config) {
 		return
 	}
 
-	expTime := time.Now().Add(time.Minute * 1)
+	expTime := time.Now().Add(time.Minute * 20)
 	claims := &config.JWTClaim{
 		Email: user.Email,
 		RegisteredClaims: jwt.RegisteredClaims{
